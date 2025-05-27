@@ -4,9 +4,11 @@ import {NavComponent} from './nav/nav.component';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
+  imports: [RouterOutlet,NavComponent],
   templateUrl: './app.component.html',
+  standalone: true,
   styleUrl: './app.component.css'
+
 })
 export class AppComponent {
   title = 'Frontend';
