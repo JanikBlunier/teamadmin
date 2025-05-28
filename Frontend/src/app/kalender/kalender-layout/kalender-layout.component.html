@@ -1,12 +1,14 @@
 <div class="calendar-wrapper">
   <div class="calendar-header">
+    <button class="nav-button" (click)="previousWeek()">&#8592;</button>
     <h2>Woche</h2>
+    <button class="nav-button" (click)="nextWeek()">&#8594;</button>
     <button class="create-event-button" (click)="createEvent()">Neues Event</button>
   </div>
 
   <div class="calendar-grid">
-    <div class="day-cell" *ngFor="let day of daysOfWeek">
-      <div class="date-label">{{ day }}</div>
+    <div class="day-cell" *ngFor="let date of currentWeekDates">
+      <div class="date-label">{{ date }}</div>
     </div>
   </div>
 </div>
