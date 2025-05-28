@@ -1,0 +1,8 @@
+<div class="events-container">
+  <div class="event-card" *ngFor="let event of events">
+    <h2>{{ event.typ }}</h2>
+    <p><strong>Ort:</strong> {{ event.ort }}</p>
+    <p><strong>Zeit:</strong> {{ event.zeit }}</p>
+    <p><strong>Beschreibung:</strong> <br>{{ event.beschreibung }}</p>
+  </div>
+</div>
