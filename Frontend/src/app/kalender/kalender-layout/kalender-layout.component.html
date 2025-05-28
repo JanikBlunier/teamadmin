@@ -1,0 +1,12 @@
+<div class="calendar-wrapper">
+  <div class="calendar-header">
+    <h2>Woche</h2>
+    <button class="create-event-button" (click)="createEvent()">Neues Event</button>
+  </div>
+
+  <div class="calendar-grid">
+    <div class="day-cell" *ngFor="let day of daysOfWeek">
+      <div class="date-label">{{ day }}</div>
+    </div>
+  </div>
+</div>
