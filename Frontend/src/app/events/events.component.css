@@ -1,12 +1,35 @@
 .events-container {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   gap: 1.5rem;
+
+  overflow-x: auto;
+  white-space: nowrap;
+  padding-bottom: 1rem;
 }
 
+/* Optional: Scrollbar Styling (Chrome, Edge, Safari) */
+.events-container::-webkit-scrollbar {
+  height: 8px;
+}
+.events-container::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+}
+.events-container::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* Einzelne Karte */
 .event-card {
+  flex: 0 0 250px;             /* fixe Breite */
+  height: 250px;              /* fixe Höhe */
+
   background-color: white;
   padding: 1.5rem;
   border-radius: 12px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+
+  display: inline-flex;       /* verhindert Umbruch bei white-space: nowrap */
+  flex-direction: column;
 }
