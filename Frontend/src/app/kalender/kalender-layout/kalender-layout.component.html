@@ -11,4 +11,5 @@
       <div class="date-label">{{ date }}</div>
     </div>
   </div>
+  <app-creat-event *ngIf="showCreateEventForm" (closed)="createEvent()"></app-creat-event>
 </div>

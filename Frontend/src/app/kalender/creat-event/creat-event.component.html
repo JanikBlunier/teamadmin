@@ -1,0 +1,27 @@
+<div class="backdrop">
+  <div class="modal">
+    <button class="close-button" (click)="closeForm()">&times;</button>
+    <h3>Neues Event erstellen</h3>
+    <form (submit)="saveEvent(); $event.preventDefault()">
+      <label for="typ">Typ</label>
+      <select id="typ" [(ngModel)]="typ" name="typ" required>
+        <option value="Training">Training</option>
+        <option value="Match">Match</option>
+      </select>
+
+      <label for="ort">Ort</label>
+      <input id="ort" type="text" [(ngModel)]="ort" name="ort" required />
+
+      <label for="datum">Datum</label>
+      <input id="datum" type="date" [(ngModel)]="datum" name="datum" required />
+
+      <label for="zeit">Zeit</label>
+      <input id="zeit" type="time" [(ngModel)]="zeit" name="zeit" required />
+
+      <label for="beschreibung">Beschreibung</label>
+      <textarea id="beschreibung" [(ngModel)]="beschreibung" name="beschreibung" required></textarea>
+
+      <button type="submit" class="save-button">Speichern</button>
+    </form>
+  </div>
+</div>

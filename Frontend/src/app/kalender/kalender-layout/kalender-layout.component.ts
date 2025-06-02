@@ -1,13 +1,14 @@
 import { Component } from '@angular/core';
 import {NgForOf, NgIf} from '@angular/common';
+import {CreatEventComponent} from '../creat-event/creat-event.component';
 
 
 @Component({
   selector: 'app-kalender-layout',
   imports: [
     NgForOf,
-    NgIf
-
+    NgIf,
+    CreatEventComponent
   ],
   templateUrl: './kalender-layout.component.html',
   standalone: true,
@@ -15,6 +16,8 @@ import {NgForOf, NgIf} from '@angular/common';
 })
 
 export class KalenderLayoutComponent {
+  showCreateEventForm = false;
+
   currentWeekDates: string[] = [];
   daysOfWeek = ['Mo', 'Di', 'Mi', 'Do', 'Fr', 'Sa', 'So'];
   referenceDate = new Date();
@@ -22,7 +25,7 @@ export class KalenderLayoutComponent {
   ngOnInit() {
     this.generateCurrentWeek();
   }
-
+  //Generiert mit ChatGPT
   generateCurrentWeek() {
     const firstDayOfWeek = new Date(this.referenceDate);
     const dayOfWeek = (this.referenceDate.getDay() + 6) % 7; // Montag = 0
@@ -37,6 +40,7 @@ export class KalenderLayoutComponent {
     });
   }
 
+
   previousWeek() {
     this.referenceDate.setDate(this.referenceDate.getDate() - 7);
     this.generateCurrentWeek();
@@ -48,6 +52,7 @@ export class KalenderLayoutComponent {
   }
 
   createEvent() {
-    alert('Neues Event erstellen');
+    this.showCreateEventForm = !this.showCreateEventForm;
   }
+
 }
