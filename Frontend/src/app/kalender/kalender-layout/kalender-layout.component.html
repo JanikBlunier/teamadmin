@@ -6,10 +6,23 @@
     <button class="create-event-button" (click)="createEvent()">Neues Event</button>
   </div>
 
+  // zum Teil mit chatgpt und dann angepasst
   <div class="calendar-grid">
     <div class="day-cell" *ngFor="let date of currentWeekDates">
       <div class="date-label">{{ date }}</div>
+
+      <div *ngFor="let event of getEventsForDate(date)">
+        <div class="event-card">
+          <strong>{{ event.typ }}</strong><br>
+          {{ event.ort }}<br>
+          {{ event.zeit }}
+        </div>
+      </div>
     </div>
   </div>
-  <app-creat-event *ngIf="showCreateEventForm" (closed)="createEvent()"></app-creat-event>
+
+  <app-creat-event
+    *ngIf="showCreateEventForm"
+    (closed)="showCreateEventForm = false"
+  ></app-creat-event>
 </div>

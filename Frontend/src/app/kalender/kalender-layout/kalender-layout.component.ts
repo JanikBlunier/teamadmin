@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import {NgForOf, NgIf} from '@angular/common';
 import {CreatEventComponent} from '../creat-event/creat-event.component';
+import { DUMMY_EVENTS, EventData } from '../../events/Dummy-event';
 
 
 @Component({
@@ -21,6 +22,8 @@ export class KalenderLayoutComponent {
   currentWeekDates: string[] = [];
   daysOfWeek = ['Mo', 'Di', 'Mi', 'Do', 'Fr', 'Sa', 'So'];
   referenceDate = new Date();
+
+  events: EventData[] = DUMMY_EVENTS;
 
   ngOnInit() {
     this.generateCurrentWeek();
@@ -55,4 +58,12 @@ export class KalenderLayoutComponent {
     this.showCreateEventForm = !this.showCreateEventForm;
   }
 
+  getEventsForDate(dateLabel: string): EventData[] {
+    const dayNumber = Number(dateLabel.split(' ')[1]);
+
+    return this.events.filter(event => {
+      const eventDay = new Date(event.datum).getDate();
+      return eventDay === dayNumber;
+    });
+  }
 }

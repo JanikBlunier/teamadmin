@@ -26,11 +26,12 @@ export class CreatEventComponent {
 
   saveEvent() {
     if (this.typ && this.ort && this.datum && this.zeit && this.beschreibung) {
-      const zeitFormatted = `${this.datum}, ${this.zeit}`;
+
       DUMMY_EVENTS.push({
         typ: this.typ,
         ort: this.ort,
-        zeit: zeitFormatted,
+        datum: this.datum,
+        zeit: this.zeit,
         beschreibung: this.beschreibung
       });
       this.closeForm();

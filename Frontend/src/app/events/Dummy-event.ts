@@ -1,6 +1,7 @@
 export interface EventData {
   typ: string;
   ort: string;
+  datum: string;
   zeit: string;
   beschreibung: string;
 }
@@ -9,13 +10,15 @@ export const DUMMY_EVENTS: EventData[] = [
   {
     typ: 'Training',
     ort: 'Sportplatz, Aree',
-    zeit: 'Freitag, 14. Juni, 18:00 Uhr',
+    datum: '2023, 5, 14',
+    zeit: '18:00',
     beschreibung: 'Laufschuhe mit nehmen'
   },
   {
     typ: 'Match',
     ort: 'Wankdorfstadion, Bern',
-    zeit: 'Montag, 24. Juni, 19:00 Uhr',
+    datum: '2023, 5, 24',
+    zeit: '19:00',
     beschreibung: 'Bitte pünktlich sein'
   }
 ];
