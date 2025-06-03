@@ -31,5 +31,10 @@ export class EventsComponent {
     this.selectedEvent = null;
     this.showEditEventForm = false;
   }
+  onEventSaved(updatedEvent: EventData) {
+    // Da wir per Referenz arbeiten, ist das Event im Array bereits aktualisiert.
+    console.log('Event gespeichert:', updatedEvent);
+    // Optional: Hier könntest du z.B. noch eine Bestätigung anzeigen.
+  }
 }
 

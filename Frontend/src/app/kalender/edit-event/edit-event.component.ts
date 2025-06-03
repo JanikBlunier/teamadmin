@@ -14,8 +14,13 @@ import {EventData} from '../../events/Dummy-event';
 export class EditEventComponent {
   @Input() event!: EventData;
   @Output() closed = new EventEmitter<void>();
+  @Output() saved = new EventEmitter<EventData>();
 
   closeForm() {
     this.closed.emit();
+  }
+  saveChanges() {
+    this.saved.emit(this.event); // <-- Änderungen weitergeben
+    this.closeForm();            // und Fenster schließen
   }
 }

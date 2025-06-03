@@ -6,8 +6,9 @@
     <p><strong>Zeit:</strong> {{ event.zeit }}</p>
     <p><strong>Beschreibung:</strong> <br>{{ event.beschreibung }}</p>
 
-    <button (click)="openEditEvent(event)" class="edit-button">Bearbeiten</button>
-  </div>
+    <div class="button-wrapper">
+      <button class="edit-button" (click)="openEditEvent(event)">Bearbeiten</button>
+    </div>  </div>
 </div>
 
 <!-- Nur wenn ausgewählt -->
@@ -15,5 +16,6 @@
   *ngIf="showEditEventForm && selectedEvent"
   [event]="selectedEvent"
   (closed)="closeEditEvent()"
+  (saved)="onEventSaved($event)"
 ></app-edit-event>
 

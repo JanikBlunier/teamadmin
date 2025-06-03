@@ -18,5 +18,8 @@
       <label for="beschreibung">Beschreibung</label>
       <textarea id="beschreibung" [(ngModel)]="event.beschreibung" name="beschreibung" required></textarea>
     </form>
+    <div class="button-row">
+      <button class="save-button" (click)="saveChanges()">Speichern</button>
+    </div>
   </div>
 </div>
