@@ -17,10 +17,24 @@ import {EditEventComponent} from '../kalender/edit-event/edit-event.component';
 })
 
 export class EventsComponent {
-  events: EventData[] = DUMMY_EVENTS;
+  events: EventData[] = [];
 
   selectedEvent: EventData | null = null;
   showEditEventForm = false;
+
+  ngOnInit(): void {
+    const storedEvents = localStorage.getItem('events');
+    if (storedEvents) {
+      this.events = JSON.parse(storedEvents);
+    } else {
+      this.events = DUMMY_EVENTS;
+      this.saveEventsToLocalStorage();
+    }
+  }
+
+  saveEventsToLocalStorage(): void {
+    localStorage.setItem('events', JSON.stringify(this.events));
+  }
 
   openEditEvent(event: EventData) {
     this.selectedEvent = event;
@@ -38,7 +52,7 @@ export class EventsComponent {
   }
   deleteEvent(eventToDelete: EventData): void {
     this.events = this.events.filter(event => event !== eventToDelete);
-    // Falls das gerade bearbeitete Event gelöscht wird, schließe den Dialog
+    this.saveEventsToLocalStorage();
     if (this.selectedEvent === eventToDelete) {
       this.closeEditEvent();
     }
