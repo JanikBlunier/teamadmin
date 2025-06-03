@@ -36,5 +36,12 @@ export class EventsComponent {
     console.log('Event gespeichert:', updatedEvent);
     // Optional: Hier könntest du z.B. noch eine Bestätigung anzeigen.
   }
+  deleteEvent(eventToDelete: EventData): void {
+    this.events = this.events.filter(event => event !== eventToDelete);
+    // Falls das gerade bearbeitete Event gelöscht wird, schließe den Dialog
+    if (this.selectedEvent === eventToDelete) {
+      this.closeEditEvent();
+    }
+  }
 }
 

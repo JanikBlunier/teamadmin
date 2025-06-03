@@ -7,8 +7,9 @@
     <p><strong>Beschreibung:</strong> <br>{{ event.beschreibung }}</p>
 
     <div class="button-wrapper">
-      <button class="edit-button" (click)="openEditEvent(event)">Bearbeiten</button>
-    </div>  </div>
+      <button class="edit-button" (click)="openEditEvent(event)">Bearbeiten</button> <br>
+      <button class="delete-button" (click)="deleteEvent(event)">Löschen</button>
+    </div>
 </div>
 
 <!-- Nur wenn ausgewählt -->
