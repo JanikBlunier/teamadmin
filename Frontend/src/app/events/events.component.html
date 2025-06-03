@@ -5,9 +5,12 @@
     <p><strong>Zeit:</strong> {{ event.zeit }}</p>
     <p><strong>Beschreibung:</strong> <br>{{ event.beschreibung }}</p>
 
-    <!-- Bearbeiten-Button -->
-    <div class="button-wrapper">
-      <button class="edit-button">Bearbeiten</button>
+    <button (click)="openEditEvent(event)" class="edit-button">Bearbeiten</button>
 
   </div>
 </div>
+
+<app-edit-event
+  *ngIf="showEditEventForm"
+  (close)="closeEditEvent()"
+></app-edit-event>
