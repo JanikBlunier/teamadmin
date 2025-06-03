@@ -1,7 +1,6 @@
 import {Component, EventEmitter, Output} from '@angular/core';
 import {DUMMY_EVENTS} from '../../events/Dummy-event';
 import {FormsModule} from '@angular/forms';
-import { PocketBaseService } from '../../services/pocketbase.service';
 
 @Component({
   selector: 'app-creat-event',
@@ -13,32 +12,29 @@ import { PocketBaseService } from '../../services/pocketbase.service';
   styleUrl: './creat-event.component.css'
 })
 export class CreatEventComponent {
+  @Output() closed = new EventEmitter<void>();
+
+  typ: string = 'Training';
+  ort: string = '';
+  datum: string = '';
+  zeit: string = '';
+  beschreibung: string = '';
+
   closeForm() {
     this.closed.emit();
   }
 
-  @Output() closed = new EventEmitter<void>();
-
-  typ = '';
-  ort = '';
-  datum: string = '';
-  zeit: string = '';
-  beschreibung = '';
-
-  constructor(private pbService: PocketBaseService) {}
-
-
-
   saveEvent() {
     if (this.typ && this.ort && this.datum && this.zeit && this.beschreibung) {
 
-      const event = {
+      DUMMY_EVENTS.push({
         typ: this.typ,
         ort: this.ort,
         datum: this.datum,
         zeit: this.zeit,
-        beschreibung: this.beschreibung,
-      };
+        beschreibung: this.beschreibung
+      });
+      this.closeForm();
     } else {
       alert('Bitte alle Felder ausfüllen');
     }
