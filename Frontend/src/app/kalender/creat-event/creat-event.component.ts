@@ -39,13 +39,6 @@ export class CreatEventComponent {
         zeit: this.zeit,
         beschreibung: this.beschreibung,
       };
-
-      this.pbService.createEvent(event).then(() => {
-        this.closeForm();
-      }).catch(err => {
-        alert('Fehler beim Speichern');
-        console.error(err);
-      });
     } else {
       alert('Bitte alle Felder ausfüllen');
     }
