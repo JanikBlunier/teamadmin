@@ -16,10 +16,5 @@ import { Router } from '@angular/router';
 export class EventsComponent {
   events: EventData[] = DUMMY_EVENTS;
 
-  constructor(private router: Router) {}
-
-  editEvent(event: any): void {
-    this.router.navigate(['/edit-event']);
-  }
 }
 

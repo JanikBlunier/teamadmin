@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import {Component, EventEmitter, Input, Output} from '@angular/core';
 import {FormsModule} from '@angular/forms';
+import {EventData} from '../../events/Dummy-event';
 
 @Component({
   selector: 'app-edit-event',
@@ -11,5 +12,10 @@ import {FormsModule} from '@angular/forms';
   styleUrls: ['./edit-event.component.css']
 })
 export class EditEventComponent {
+  @Input() event!: EventData;
+  @Output() closed = new EventEmitter<void>();
 
+  closeForm() {
+    this.closed.emit();
+  }
 }

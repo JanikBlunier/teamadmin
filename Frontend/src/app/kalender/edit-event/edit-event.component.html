@@ -1,0 +1,22 @@
+<div class="backdrop">
+  <div class="modal">
+    <button class="close-button" (click)="closeForm()">&times;</button>
+    <h3>Event bearbeiten</h3>
+    <form>
+      <label for="typ">Typ</label>
+      <input id="typ" type="text" [(ngModel)]="event.typ" name="typ" required />
+
+      <label for="ort">Ort</label>
+      <input id="ort" type="text" [(ngModel)]="event.ort" name="ort" required />
+
+      <label for="datum">Datum</label>
+      <input id="datum" type="date" [(ngModel)]="event.datum" name="datum" required />
+
+      <label for="zeit">Zeit</label>
+      <input id="zeit" type="time" [(ngModel)]="event.zeit" name="zeit" required />
+
+      <label for="beschreibung">Beschreibung</label>
+      <textarea id="beschreibung" [(ngModel)]="event.beschreibung" name="beschreibung" required></textarea>
+    </form>
+  </div>
+</div>
