@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import {DUMMY_EVENTS, EventData} from './Dummy-event';
 import {NgForOf} from '@angular/common';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-events',
@@ -14,5 +15,11 @@ import {NgForOf} from '@angular/common';
 
 export class EventsComponent {
   events: EventData[] = DUMMY_EVENTS;
+
+  constructor(private router: Router) {}
+
+  editEvent(event: any): void {
+    this.router.navigate(['/edit-event']);
+  }
 }
 

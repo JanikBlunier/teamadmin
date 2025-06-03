@@ -33,3 +33,22 @@
   display: inline-flex;       /* verhindert Umbruch bei white-space: nowrap */
   flex-direction: column;
 }
+
+.button-wrapper {
+  margin-top: auto; /* schiebt Button nach unten */
+}
+
+.edit-button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  width: 100%; /* <-- macht den Button so breit wie die Box */
+}
+
+.edit-button:hover {
+  background-color: #0056b3;
+}

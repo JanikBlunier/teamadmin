@@ -4,5 +4,10 @@
     <p><strong>Ort:</strong> {{ event.ort }}</p>
     <p><strong>Zeit:</strong> {{ event.zeit }}</p>
     <p><strong>Beschreibung:</strong> <br>{{ event.beschreibung }}</p>
+
+    <!-- Bearbeiten-Button -->
+    <div class="button-wrapper">
+      <button class="edit-button" (click)="editEvent(event)">Bearbeiten</button>
+
   </div>
 </div>
