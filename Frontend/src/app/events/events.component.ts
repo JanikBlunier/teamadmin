@@ -19,8 +19,8 @@ import {EditEventComponent} from '../kalender/edit-event/edit-event.component';
 export class EventsComponent {
   events: EventData[] = DUMMY_EVENTS;
 
+  selectedEvent: EventData | null = null;
   showEditEventForm = false;
-  selectedEvent?: EventData;
 
   openEditEvent(event: EventData) {
     this.selectedEvent = event;
@@ -28,6 +28,7 @@ export class EventsComponent {
   }
 
   closeEditEvent() {
+    this.selectedEvent = null;
     this.showEditEventForm = false;
   }
 }

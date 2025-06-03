@@ -6,11 +6,13 @@
     <p><strong>Beschreibung:</strong> <br>{{ event.beschreibung }}</p>
 
     <button (click)="openEditEvent(event)" class="edit-button">Bearbeiten</button>
-
   </div>
 </div>
 
+<!-- Nur wenn ausgewählt -->
 <app-edit-event
-  *ngIf="showEditEventForm"
-  (close)="closeEditEvent()"
+  *ngIf="showEditEventForm && selectedEvent"
+  [event]="selectedEvent"
+  (closed)="closeEditEvent()"
 ></app-edit-event>
+
